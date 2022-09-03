@@ -1,28 +1,18 @@
 package ru.netology.javaqa.game.game;
 import ru.netology.javaqa.game.domain.Player;
+import java.util.HashMap;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Game {
-    protected List<Player> playerList = new ArrayList<>();
+    protected HashMap<String, Player> players= new HashMap<>();
 
-    public void register(Player player) {
-        playerList.add(player);
+    public void register(String name, Player player) {
+        players.put(name, player);
     }
 
     public int round(String playerName1, String playerName2) {
-        Player player1 = null;
-        Player player2 = null;
-
-        for (Player player : playerList) {
-            if (player.getName().equals(playerName1)) {
-                player1 = player;
-            }
-            if (player.getName().equals(playerName2)) {
-                player2 = player;
-            }
-        }
+        Player player1 = players.get(playerName1);
+        Player player2 = players.get(playerName2);
 
         if (player1 == null) {
             throw new RuntimeException(
