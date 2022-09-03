@@ -15,11 +15,11 @@ public class GameTest {
 
     @BeforeEach
     public void setup() {
-        game.register(player1);
-        game.register(player2);
-        game.register(player3);
-        game.register(player4);
-        game.register(player5);
+        game.register("Ivan", player1);
+        game.register("Maks", player2);
+        game.register("Petya", player3);
+        game.register("Nikita", player4);
+        game.register("Kolya", player5);
     }
 
     @Test
@@ -67,6 +67,14 @@ public class GameTest {
 
         int expected = 45;
         int actual = player3.getId();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldShowName () {
+
+        String expected = "Maks";
+        String  actual = player2.getName();
         Assertions.assertEquals(expected, actual);
     }
 }
